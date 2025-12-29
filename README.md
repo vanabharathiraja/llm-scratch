@@ -84,7 +84,5 @@ elif torch.backends.mps.is_available():
 
 ```
 
-**Would you like me to provide a basic "Hello World" PyTorch template for a simple Bigram language model to get your first script running?**
-
 [Python Environment Setup for LLM Fine-Tuning](https://www.youtube.com/watch?v=_z6WPasIK8U)
 This video provides a practical walkthrough of setting up a Conda environment specifically for PyTorch and CUDA to ensure your GPU is correctly utilized for model training.
