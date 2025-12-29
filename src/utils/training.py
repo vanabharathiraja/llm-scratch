@@ -19,7 +19,7 @@ def get_device():
 
 
 def get_lr(optimizer):
-    """Get current learning rate from optimizer."""
+    """Get current learning rate from optimizer (returns first parameter group's lr)."""
     for param_group in optimizer.param_groups:
         return param_group['lr']
 

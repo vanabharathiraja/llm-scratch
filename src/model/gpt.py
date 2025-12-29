@@ -46,7 +46,7 @@ class MultiHeadAttention(nn.Module):
         
         # Causal mask - prevent attending to future positions
         mask = torch.tril(torch.ones(T, T, device=x.device)).view(1, 1, T, T)
-        att = att.masked_fill(mask == 0, float('-inf'))
+        att = att.masked_fill(mask == 0, -1e10)  # Use large negative number for numerical stability
         
         att = F.softmax(att, dim=-1)
         att = self.attn_dropout(att)

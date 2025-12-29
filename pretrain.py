@@ -106,9 +106,10 @@ def main(args):
     val_text = text[int(0.9 * n):]
     
     # Create temporary files for datasets
-    os.makedirs('/tmp/llm_data', exist_ok=True)
-    train_file = '/tmp/llm_data/train.txt'
-    val_file = '/tmp/llm_data/val.txt'
+    import tempfile
+    temp_dir = tempfile.mkdtemp()
+    train_file = os.path.join(temp_dir, 'train.txt')
+    val_file = os.path.join(temp_dir, 'val.txt')
     
     with open(train_file, 'w', encoding='utf-8') as f:
         f.write(train_text)
