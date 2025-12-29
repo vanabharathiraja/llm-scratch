@@ -84,15 +84,19 @@ class FinetuningDataset(Dataset):
         prompt = f"Input: {input_text} Output: {output_text}"
         tokens = self.tokenizer.encode(prompt)
         
-        # Truncate or pad to block_size
-        if len(tokens) > self.block_size:
-            tokens = tokens[:self.block_size]
+        # Ensure we have at least 2 tokens for x and y
+        if len(tokens) < 2:
+            tokens = tokens + [0] * (2 - len(tokens))
+        
+        # Truncate to block_size + 1 (to account for x and y split)
+        if len(tokens) > self.block_size + 1:
+            tokens = tokens[:self.block_size + 1]
         
         # Create input and target
         x = torch.tensor(tokens[:-1], dtype=torch.long)
         y = torch.tensor(tokens[1:], dtype=torch.long)
         
-        # Pad if necessary
+        # Pad if necessary to reach block_size
         if len(x) < self.block_size:
             pad_len = self.block_size - len(x)
             x = torch.cat([x, torch.zeros(pad_len, dtype=torch.long)])
