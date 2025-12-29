@@ -17,7 +17,7 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 
 from src.model.gpt import GPT
 from src.data.tokenizer import CharTokenizer
-from src.data.dataset import FintuningDataset, create_dataloader
+from src.data.dataset import FinetuningDataset, create_dataloader
 from src.utils.training import (
     get_device, save_checkpoint, load_checkpoint,
     count_parameters, load_config, save_config, TrainingMetrics
@@ -117,8 +117,8 @@ def main(args):
     print(f"Validation examples: {len(val_data)}")
     
     # Create datasets
-    train_dataset = FintuningDataset(train_data, tokenizer, config['block_size'])
-    val_dataset = FintuningDataset(val_data, tokenizer, config['block_size'])
+    train_dataset = FinetuningDataset(train_data, tokenizer, config['block_size'])
+    val_dataset = FinetuningDataset(val_data, tokenizer, config['block_size'])
     
     # Create dataloaders
     train_loader = create_dataloader(train_dataset, args.batch_size, shuffle=True)

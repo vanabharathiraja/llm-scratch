@@ -56,7 +56,7 @@ class TextFileDataset(Dataset):
         return x, y
 
 
-class FintuningDataset(Dataset):
+class FinetuningDataset(Dataset):
     """Dataset for finetuning tasks (e.g., question answering, summarization)."""
     
     def __init__(self, examples, tokenizer, block_size):

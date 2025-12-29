@@ -1,12 +1,12 @@
 """Data loading and tokenization utilities."""
 from .tokenizer import CharTokenizer, SimpleTokenizer
-from .dataset import TextDataset, TextFileDataset, FintuningDataset, create_dataloader
+from .dataset import TextDataset, TextFileDataset, FinetuningDataset, create_dataloader
 
 __all__ = [
     'CharTokenizer',
     'SimpleTokenizer',
     'TextDataset',
     'TextFileDataset',
-    'FintuningDataset',
+    'FinetuningDataset',
     'create_dataloader'
 ]
