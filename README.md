@@ -8,9 +8,9 @@ Using Conda is highly recommended because it manages non-Python dependencies (li
 
 **Step-by-Step Commands:**
 
-1. **Create the environment:** Use Python 3.10 or 3.11, as they are currently the most stable for deep learning libraries.
+1. **Create the environment:** Use Python 3.11 or 3.14, as they are currently the most stable for deep learning libraries.
 ```bash
-conda create -n llm-scratch python=3.10 -y
+conda create -n llm-scratch python=3.11 -y
 conda activate llm-scratch
 
 ```
